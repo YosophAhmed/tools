@@ -17,6 +17,7 @@ class Tools extends StatelessWidget {
           theme: ThemeData(
             brightness: Brightness.dark,
             fontFamily: 'Poppins',
+            primarySwatch: Colors.grey,
           ),
           routes: {
             HomePage.routeName: (context) => const HomePage(),
