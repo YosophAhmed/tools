@@ -25,10 +25,12 @@ class PasswordGeneratorPage extends StatelessWidget {
           right: 2.5.w,
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            const SizedBox(
+              height: 150,
+            ),
             Container(
-              height: 50.h,
+              height: 300,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.sp),
                 image: const DecorationImage(
@@ -36,6 +38,9 @@ class PasswordGeneratorPage extends StatelessWidget {
                   fit: BoxFit.fill,
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 100,
             ),
             CustomButton(
               onTap: () {
@@ -76,7 +81,9 @@ class PasswordGeneratorPage extends StatelessWidget {
                             );
                           },
                           label: 'Copy to Clipboard',
-                          color: Colors.cyanAccent,
+                          color: Colors.tealAccent,
+                          labelColor: Colors.black,
+
                           height: 50,
                         ),
                         const Spacer(),
@@ -89,7 +96,8 @@ class PasswordGeneratorPage extends StatelessWidget {
                             Navigator.pop(context);
                           },
                           label: 'Create new password',
-                          color: Colors.cyanAccent,
+                          color: Colors.tealAccent,
+                          labelColor: Colors.black,
                           height: 50,
                         ),
                       ],
@@ -98,8 +106,12 @@ class PasswordGeneratorPage extends StatelessWidget {
                 );
               },
               label: 'Create Password',
-              color: Colors.cyanAccent,
+              labelColor: Colors.black,
+              color: Colors.tealAccent,
               height: 50,
+            ),
+            const SizedBox(
+              height: 100,
             ),
             CustomBackButton(
               onPressed: () {

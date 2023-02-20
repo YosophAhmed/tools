@@ -1,30 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
-
 
 class CustomTextFormField extends StatelessWidget {
-
-  final String? hintText;
-  final IconData? suffix;
-  final IconData? prefix;
-  final bool? obscure;
   final TextEditingController? controller;
-  final TextInputType? keyboardType;
+  final TextInputType keyboardType;
+  final String hintText;
+  final bool obscure;
+
   final Function(String)? onChanged;
   final Function(String)? onSubmitted;
+  final void Function(String?)? onSaved;
+
+  final IconData? suffix;
+  final IconData? prefix;
   final void Function()? suffixFunction;
+
+  final Color color;
+  final double borderRadius;
+  final int maxLines;
 
   const CustomTextFormField({
     Key? key,
-    this.hintText,
-    this.obscure = false,
     this.controller,
-    this.keyboardType,
+    this.keyboardType = TextInputType.text,
+    this.obscure = false,
+    this.hintText = '',
     this.onChanged,
     this.onSubmitted,
-    this.suffix,
+    this.onSaved,
     this.prefix,
+    this.suffix,
     this.suffixFunction,
+    this.color = Colors.blue,
+    this.borderRadius = 10.0,
+    this.maxLines = 1,
   }) : super(key: key);
 
   @override
@@ -32,11 +40,14 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       keyboardType: keyboardType,
-      obscureText: obscure!,
+      obscureText: obscure,
       onChanged: onChanged,
+      onSaved: onSaved,
       onFieldSubmitted: onSubmitted,
+      cursorColor: color,
+      maxLines: maxLines,
       validator: (data) {
-        if(data!.isEmpty){
+        if (data!.isEmpty) {
           return 'field is required!';
         }
         return null;
@@ -44,26 +55,26 @@ class CustomTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hintText,
         border: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: Colors.cyanAccent,
+          borderSide: BorderSide(
+            color: color,
           ),
-          borderRadius: BorderRadius.circular(8.sp),
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: Colors.cyanAccent,
+          borderSide: BorderSide(
+            color: color,
           ),
-          borderRadius: BorderRadius.circular(8.sp),
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: Colors.cyanAccent,
+          borderSide: BorderSide(
+            color: color,
           ),
-          borderRadius: BorderRadius.circular(8.sp),
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
         prefixIcon: Icon(
           prefix,
-          color: Colors.cyanAccent,
+          color: color,
         ),
         suffixIcon: IconButton(
           onPressed: suffixFunction,

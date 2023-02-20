@@ -39,7 +39,7 @@ class CustomToolContainer extends StatelessWidget {
             ),
           ),
           Container(
-            height: 30.h,
+            height: 25.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(22.sp),

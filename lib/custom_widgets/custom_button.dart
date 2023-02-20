@@ -5,35 +5,45 @@ class CustomButton extends StatelessWidget {
   final VoidCallback onTap;
   final double width;
   final double height;
+  final double borderRadius;
+  final bool isLoading;
   final Color color;
+  final Color labelColor;
 
   const CustomButton({
     Key? key,
     required this.label,
     required this.onTap,
+    this.height = 50,
     this.width = double.infinity,
-    this.height = 3.0,
-    this.color = Colors.red,
+    this.borderRadius = 10.0,
+    this.isLoading = false,
+    this.color = Colors.blue,
+    this.labelColor = Colors.white,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onTap,
       child: Container(
-        width: width,
         height: height,
+        width: width,
+        alignment: Alignment.center,
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
-        alignment: Alignment.center,
-        child: Text(
+        child: isLoading
+            ? const CircularProgressIndicator(
+          color: Colors.black,
+        )
+            : Text(
           label,
-          style: const TextStyle(
-            fontSize: 24,
+          style: TextStyle(
+            fontSize: 26,
             fontWeight: FontWeight.bold,
-            color: Colors.black,
+            color: labelColor,
           ),
         ),
       ),

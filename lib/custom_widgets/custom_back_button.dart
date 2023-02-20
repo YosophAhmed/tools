@@ -12,7 +12,7 @@ class CustomBackButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircleAvatar(
       radius: 32,
-      backgroundColor: Colors.cyanAccent,
+      backgroundColor: Colors.tealAccent,
       child: Center(
         child: IconButton(
           icon: const Icon(

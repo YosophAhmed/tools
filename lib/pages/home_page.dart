@@ -26,6 +26,7 @@ class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
       child: Padding(
         padding: EdgeInsets.only(
           top: 6.h,
@@ -44,23 +45,10 @@ class HomeBody extends StatelessWidget {
             CustomToolContainer(
               title: 'Password Generator',
               imageName: 'password_image.jpg',
-              onTap: (){
-                Navigator.pushNamed(
-                    context,
-                    PasswordGeneratorPage.routeName,
-                );
-              },
-            ),
-            SizedBox(
-              height: 3.h,
-            ),
-            CustomToolContainer(
-              title: 'Link Shortener',
-              imageName: 'link_shortner_image.jpg',
-              onTap: (){
+              onTap: () {
                 Navigator.pushNamed(
                   context,
-                  ShortLinkPage.routeName,
+                  PasswordGeneratorPage.routeName,
                 );
               },
             ),
@@ -68,15 +56,28 @@ class HomeBody extends StatelessWidget {
               height: 3.h,
             ),
             CustomToolContainer(
-              title: 'QR Coder',
+              title: 'QR Generator',
               imageName: 'QR_image.png',
-              onTap: (){
+              onTap: () {
                 Navigator.pushNamed(
                   context,
                   QRCodePage.routeName,
                 );
               },
             ),
+            // SizedBox(
+            //   height: 3.h,
+            // ),
+            // CustomToolContainer(
+            //   title: 'Link Shortener',
+            //   imageName: 'link_shortner_image.jpg',
+            //   onTap: (){
+            //     Navigator.pushNamed(
+            //       context,
+            //       ShortLinkPage.routeName,
+            //     );
+            //   },
+            // ),
           ],
         ),
       ),
