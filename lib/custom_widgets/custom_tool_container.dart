@@ -38,16 +38,19 @@ class CustomToolContainer extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            height: 25.h,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                bottomRight: Radius.circular(22.sp),
-                bottomLeft: Radius.circular(22.sp),
-              ),
-              image: DecorationImage(
-                image: AssetImage('assets/images/$imageName'),
-                fit: BoxFit.fill,
+          Hero(
+            tag: imageName,
+            child: Container(
+              height: 25.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(22.sp),
+                  bottomLeft: Radius.circular(22.sp),
+                ),
+                image: DecorationImage(
+                  image: AssetImage('assets/images/$imageName'),
+                  fit: BoxFit.fill,
+                ),
               ),
             ),
           ),

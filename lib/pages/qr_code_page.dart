@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import '../custom_widgets/custom_back_button.dart';
-import '../custom_widgets/custom_button.dart';
 import '../custom_widgets/custom_text_form_field.dart';
 import '../data/app_data.dart';
 
@@ -31,12 +30,15 @@ class _QRCodePageState extends State<QRCodePage> {
               const SizedBox(
                 height: 150,
               ),
-              Center(
-                child: QrImage(
-                  data: AppData.qrData,
-                  version: QrVersions.auto,
-                  backgroundColor: Colors.white,
-                  size: 300,
+              Hero(
+                tag: 'QR_image.png',
+                child: Center(
+                  child: QrImage(
+                    data: AppData.qrData,
+                    version: QrVersions.auto,
+                    backgroundColor: Colors.white,
+                    size: 300,
+                  ),
                 ),
               ),
               const SizedBox(

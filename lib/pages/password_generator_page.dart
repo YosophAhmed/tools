@@ -29,13 +29,16 @@ class PasswordGeneratorPage extends StatelessWidget {
             const SizedBox(
               height: 150,
             ),
-            Container(
-              height: 300,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.sp),
-                image: const DecorationImage(
-                  image: AssetImage('assets/images/password_image.jpg'),
-                  fit: BoxFit.fill,
+            Hero(
+              tag: 'password_image.jpg',
+              child: Container(
+                height: 300,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.sp),
+                  image: const DecorationImage(
+                    image: AssetImage('assets/images/password_image.jpg'),
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
             ),
